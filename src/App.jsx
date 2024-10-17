@@ -9,12 +9,26 @@ function App() {
 
   // handleClick() function will be called to modify tasks state array to add a new task.
   const handleClick = () => {
-    //TODO: Implement
+    setTasks(
+      [
+        ...tasks,
+        { value: newTask, completed: false }
+      ]
+    )
+
+    setNewTask(""); /* clear input field */
   }
 
   // handleCheck() function will be called to modify a task when it is checked/unchecked
   const handleCheck = (id, complete) => {
-    //TODO: Implement    
+    setTasks(
+      tasks.map((task,idx) => {
+        if(idx == id) {
+          task.completed = complete;
+        }
+        return task
+      })
+    )   
   }
 
   return (
